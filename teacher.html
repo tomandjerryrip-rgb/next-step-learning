@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Teacher Panel</h2>
+<input id="course" placeholder="Course name">
+<button onclick="add()">Add Course</button>
+<div id="list"></div>
+<script>
+function add(){
+ let c=JSON.parse(localStorage.getItem('courses'))||[];
+ c.push(document.getElementById('course').value);
+ localStorage.setItem('courses',JSON.stringify(c));
+ show();
+}
+function show(){
+ let c=JSON.parse(localStorage.getItem('courses'))||[];
+ list.innerHTML=c.join('<br>');
+}
+show();
+</script>
+</body>
+</html>

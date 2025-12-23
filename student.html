@@ -1,0 +1,20 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Student Panel</h2>
+<div id="courses"></div>
+<button onclick="cert()">Download Certificate</button>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+let c=JSON.parse(localStorage.getItem('courses'))||[];
+courses.innerHTML=c.join('<br>');
+function cert(){
+ const {jsPDF}=window.jspdf;
+ let pdf=new jsPDF();
+ pdf.text("Certificate of Completion",50,40);
+ pdf.save("certificate.pdf");
+}
+</script>
+</body>
+</html>
